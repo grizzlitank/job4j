@@ -1,4 +1,4 @@
-package ru.job4j.conditions;
+package ru.job4j.condition;
 
 /**
  * @author Ilya Arkhipov (mailto:ilya.arkhipov.89@mail.ru)
