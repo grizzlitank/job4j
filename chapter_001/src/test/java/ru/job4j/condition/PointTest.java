@@ -6,10 +6,10 @@ import static org.junit.Assert.assertThat;
 
 public class PointTest {
     @Test
-    public void when60RubleToDollarThen1() {
-        Point one = new Point(1, 2);
-        Point two = new Point(1, 3);
-        double distance = one.distanceTo(two);
+    public void whenDistanceFirstPointToSecondPoint1() {
+        Point firstPoint = new Point(1, 2);
+        Point secondPoint = new Point(1, 3);
+        double distance = firstPoint.distanceTo(secondPoint);
         assertThat(distance, is(1.0));
     }
 }
