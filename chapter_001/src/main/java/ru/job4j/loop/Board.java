@@ -4,9 +4,10 @@ package ru.job4j.loop;
  */
 public class Board {
     /**
-     * Считаем факториал натурального числа.
-     * @param n Начальное число.
-     * @return Факториал.
+     * Строим шахматную доску.
+     * @param width ширина.
+     * @param height высота.
+     * @return Доска.
      */
     public String paint(int width, int height) {
         StringBuilder screen = new StringBuilder();
