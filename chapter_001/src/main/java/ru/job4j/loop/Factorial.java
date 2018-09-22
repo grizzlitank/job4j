@@ -1,6 +1,6 @@
 package ru.job4j.loop;
 /**
- * Счетчик.
+ * Факториал.
  */
 public class Factorial {
     /**
