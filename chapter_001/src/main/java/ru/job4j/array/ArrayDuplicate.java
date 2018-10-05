@@ -10,19 +10,17 @@ public class ArrayDuplicate {
      * @return массив без дупликатов.
      */
     public String[] remove(String[] array) {
-        int counter = 0;
-        for (int i = 0; i < array.length - counter; i++) {
-            for (int j = 0 + i; j < array.length; j++) {
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array.length; j++) {
                 if (array[i].equals(array[j]) && i != j) {
-                    String in = array[array.length - 1 - counter];
-                    array[array.length - 1 - counter] = array[j];
+                    String in = array[array.length - 1];
+                    array[array.length - 1] = array[j];
                     array[j] = in;
-                    counter++;
-                    break;
+                    array = Arrays.copyOf(array, array.length - 1);
                 }
             }
         }
-        String[] newArray = Arrays.copyOf(array, array.length - counter);
-        return newArray;
+
+        return array;
     }
 }

@@ -27,9 +27,9 @@ public class ArrayDuplicateTest {
     @Test
     public void whenRemoveDuplicatesThenArrayWith2Duplicate() {
         ArrayDuplicate word = new ArrayDuplicate();
-        String[] input = new String[] {"Пикачу", "Чармандер", "Бульбазавр", "Чармандер", "Бульбазавр"};
+        String[] input = new String[] {"Пикачу", "Пикачу", "Пикачу", "Пикачу"};
         String[] result = word.remove(input);
-        String[] expect = new String[] {"Пикачу", "Чармандер", "Бульбазавр"};
+        String[] expect = new String[] {"Пикачу"};
         assertThat(result, is(expect)); //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
     }
 
