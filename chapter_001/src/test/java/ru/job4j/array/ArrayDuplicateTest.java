@@ -12,25 +12,25 @@ public class ArrayDuplicateTest {
         String[] input = new String[] {"Пикачу", "Чармандер", "Бульбазавр"};
         String[] result = word.remove(input);
         String[] expect = new String[] {"Пикачу", "Чармандер", "Бульбазавр"};
-        assertThat(result, is(expect)); //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
+        assertThat(result, is(expect));
     }
 
     @Test
-    public void whenRemoveDuplicatesThenArrayWith3Duplicate() {
+    public void whenRemoveDuplicatesThenArrayWith5Duplicate() {
         ArrayDuplicate word = new ArrayDuplicate();
-        String[] input = new String[] {"Пикачу", "Чармандер", "Пикачу", "Бульбазавр", "Бульбазавр", "Чармандер"};
+        String[] input = new String[] {"Пикачу", "Чармандер", "Пикачу", "Бульбазавр", "Бульбазавр", "Чармандер", "Чармандер", "Чармандер"};
         String[] result = word.remove(input);
         String[] expect = new String[] {"Пикачу", "Чармандер", "Бульбазавр"};
-        assertThat(result, is(expect)); //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
+        assertThat(result, is(expect));
     }
 
     @Test
     public void whenRemoveDuplicatesThenArrayWith2Duplicate() {
         ArrayDuplicate word = new ArrayDuplicate();
-        String[] input = new String[] {"Пикачу", "Пикачу", "Пикачу", "Пикачу"};
+        String[] input = new String[] {"Пикачу", "Пикачу", "Чармандер", "Пикачу"};
         String[] result = word.remove(input);
-        String[] expect = new String[] {"Пикачу"};
-        assertThat(result, is(expect)); //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
+        String[] expect = new String[] {"Пикачу", "Чармандер"};
+        assertThat(result, is(expect));
     }
 
     @Test
@@ -39,6 +39,6 @@ public class ArrayDuplicateTest {
         String[] input = new String[] {"Пикачу", "Чармандер", "Бульбазавр", "Чармандер"};
         String[] result = word.remove(input);
         String[] expect = new String[] {"Пикачу", "Чармандер", "Бульбазавр"};
-        assertThat(result, is(expect)); //напишите здесь тест, проверяющий удаление дубликатов строк из массива строк.
+        assertThat(result, is(expect));
     }
 }
