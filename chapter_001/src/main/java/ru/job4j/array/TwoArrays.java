@@ -8,7 +8,7 @@ public class TwoArrays {
         int counterSum = 0;
         int[] arraySum = new int[arrayX.length + arrayY.length];
         while (counterX < arrayX.length || counterY < arrayY.length) {
-            if (counterX < arrayX.length && arrayX[counterX] <= arrayY[counterY]) {
+            if (counterY == arrayY.length || counterX < arrayX.length && arrayX[counterX] <= arrayY[counterY]) {
                 arraySum[counterSum] = arrayX[counterX];
                 counterSum++;
                 counterX++;
