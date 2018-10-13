@@ -77,7 +77,7 @@ public class Logic {
                 }
                 System.out.println(table[i][j]);
             }
-            if(counter == 5) {
+            if (counter == 5) {
                 result = true;
                 break;
             }
@@ -92,7 +92,7 @@ public class Logic {
                     }
                     System.out.println(table[i][j]);
                 }
-                if(counter == 5) {
+                if (counter == 5) {
                     result = true;
                     break;
                 }
