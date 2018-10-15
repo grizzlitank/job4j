@@ -9,13 +9,9 @@ public class TwoArrays {
         int[] arraySum = new int[arrayX.length + arrayY.length];
         while (counterX < arrayX.length || counterY < arrayY.length) {
             if (counterY == arrayY.length || counterX < arrayX.length && arrayX[counterX] <= arrayY[counterY]) {
-                arraySum[counterSum] = arrayX[counterX];
-                counterSum++;
-                counterX++;
+                arraySum[counterSum++] = arrayX[counterX++];
             } else if (counterX == arrayX.length || arrayX[counterX] > arrayY[counterY]) {
-                arraySum[counterSum] = arrayY[counterY];
-                counterSum++;
-                counterY++;
+                arraySum[counterSum++] = arrayY[counterY++];
             }
         }
         return arraySum;
