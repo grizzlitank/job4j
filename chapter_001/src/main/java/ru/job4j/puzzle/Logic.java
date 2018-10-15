@@ -75,7 +75,6 @@ public class Logic {
                 if (table[i][j] == 1) {
                     counter++;
                 }
-                System.out.println(table[i][j]);
             }
             if (counter == table.length) {
                 result = true;
@@ -90,7 +89,6 @@ public class Logic {
                     if (table[i][j] == 1) {
                         counter++;
                     }
-                    System.out.println(table[i][j]);
                 }
                 if (counter == table.length) {
                     result = true;
