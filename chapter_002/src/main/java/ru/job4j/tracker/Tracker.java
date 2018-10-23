@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 
 /**
  * @version $Id$
@@ -15,7 +16,7 @@ public class Tracker {
     /**
      * Указатель ячейки для новой заявки.
      */
-    private int position = 0;
+    private int position;
 
     /**
      * Метод реализаущий добавление заявки в хранилище
@@ -33,28 +34,22 @@ public class Tracker {
      * @return Уникальный ключ.
      */
     private String generateId() {
-        //Реализовать метод генерации.
         return new StringBuilder().append(LocalTime.now()).append(Math.random() * 1000).toString();
-    }
-
-    /**
-     * Метод возвращает массив всех значений
-     * @return Массив.
-     */
-    public Item[] getAll(){
-        return this.items;
     }
 
     /**
      * Метод заменяет ячейку в массиве.
      */
-    public void replace(String id, Item item){
-        Item[] itemsWithoutNull;
-        for (int i = 0; i < this.getAll().length; i++) {
-            if (getAll()[i] != null && getAll()[i].getId().equals(id)) {
-                getAll()[i] = item;
+    public boolean replace(String id, Item item) {
+        boolean result = false;
+        for (int i = 0; i < this.items.length; i++) {
+            if (this.items[i] != null && this.items[i].getId().equals(id)) {
+                this.items[i] = item;
+                result = true;
+                break;
             }
         }
+        return result;
     }
 
     /**
@@ -62,24 +57,30 @@ public class Tracker {
      * @return заявку.
      */
     public Item findById(String id) {
-        for (int i = 0; i < this.getAll().length; i++) {
-            if (getAll()[i].getId().equals(id)) {
-                return getAll()[i];
+        Item result = null;
+        for (int i = 0; i < this.items.length; i++) {
+            if (this.items[i].getId().equals(id)) {
+                result = this.items[i];
+                break;
             }
         }
-        return null;
+        return result;
     }
 
     /**
      * Метод удаляет элемент из массива по id
      */
-    public void delete(String id) {
-        for (int i = 0; i < this.getAll().length; i++) {
-            if (getAll()[i] != null && getAll()[i].getId().equals(id)) {
-                System.arraycopy(getAll(), i + 1, getAll(), i, getAll().length - i - 1);
-                getAll()[getAll().length - 1] = null;
+    public boolean delete(String id) {
+        boolean result = false;
+        for (int i = 0; i < this.items.length; i++) {
+            if (this.items[i] != null && this.items[i].getId().equals(id)) {
+                System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1);
+                this.items[this.items.length - 1] = null;
+                result = true;
+                break;
             }
         }
+        return result;
     }
 
     /**
@@ -87,16 +88,7 @@ public class Tracker {
      * * @return массив без null
      */
     public Item[] findAll() {
-        int position = 0;
-        for (int i = 0; i < this.getAll().length; i++) {
-            if (getAll()[i] == null) {
-                position = i;
-                break;
-            }
-        }
-        Item[] itemsWithoutNull = new Item[position];
-        System.arraycopy(getAll(), 0, itemsWithoutNull, 0, position);
-        return itemsWithoutNull;
+        return Arrays.copyOf(this.items, this.position);
     }
 
     /**
@@ -104,13 +96,14 @@ public class Tracker {
      * * @return массив
      */
     public Item[] findByName(String key) {
-        Tracker testTracker = new Tracker();
-        for (int i = 0; i < this.getAll().length; i++) {
-            if (getAll()[i] != null && getAll()[i].getName().equals(key)) {
-                testTracker.add(getAll()[i]);
+        Item[] found = new Item[this.position - 1];
+        int counter = 0;
+        for (int i = 0; i < this.items.length; i++) {
+            if (this.items[i] != null && this.items[i].getName().equals(key)) {
+                found[counter++] = this.items[i];
             }
         }
-        return testTracker.findAll();
+        return found;
     }
 
 }
