@@ -77,4 +77,14 @@ public class TrackerTest {
         assertThat(tracker.findByName("test1"), is(items));
     }
 
+    @Test
+    public void whenFindByNameItemThenTrackerHasOneItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("test1", "testDescription", 123L);
+        tracker.add(item);
+        Item[] items = new Item[1];
+        items[0] = item;
+        assertThat(tracker.findByName("test1"), is(items));
+    }
+
 }

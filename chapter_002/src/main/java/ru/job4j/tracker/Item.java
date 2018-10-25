@@ -23,6 +23,11 @@ public class Item {
         this.created = created;
     }
 
+    public Item(String name, String desc) {
+        this.name = name;
+        this.desc = desc;
+    }
+
     public String getId() {
         return id;
     }
@@ -61,5 +66,14 @@ public class Item {
 
     public void setComments(String[] comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", id='" + id + '\'' +
+                '}';
     }
 }
