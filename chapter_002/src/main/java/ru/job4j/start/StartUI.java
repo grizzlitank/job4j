@@ -1,4 +1,9 @@
-package ru.job4j.tracker;
+package ru.job4j.start;
+
+import ru.job4j.tracker.ConsoleInput;
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Tracker;
 
 /**
  * @version $Id$
@@ -58,9 +63,17 @@ public class StartUI {
                     System.out.println(entry);
                 }
             } else if (REPLACE.equals(answer)) {
-                this.setItem();
+                if (this.setItem()) {
+                    System.out.println("Запись изменена");
+                } else {
+                    System.out.println("Запись не найдена");
+                }
             } else if (DELETE.equals(answer)) {
-                this.deleteItem();
+                if (this.deleteItem()) {
+                    System.out.println("Запись удалена");
+                } else {
+                    System.out.println("Запись не найдена");
+                }
             } else if (FIND_BY_ID.equals(answer)) {
                 this.findByIdItem();
             } else if (FIND_BY_NAME.equals(answer)) {
@@ -75,7 +88,7 @@ public class StartUI {
      */
     private void findByNameItem() {
         String name = this.input.ask("Введите имя заявки, которую хотите найти");
-        for(Item entry : this.tracker.findByName(name)) {
+        for (Item entry : this.tracker.findByName(name)) {
             System.out.println(entry);
         }
     }
@@ -84,26 +97,30 @@ public class StartUI {
      */
     private void findByIdItem() {
         String id = this.input.ask("Введите id заявки, которую хотите найти");
-        System.out.println(this.tracker.findById(id));
+        if (this.tracker.findById(id) != null) {
+            System.out.println(this.tracker.findById(id));
+        } else {
+            System.out.println("По данному id заявка не найдена");
+        }
+
     }
     /**
      * Метод удаляет заявки в хранилище.
      */
-    private void deleteItem() {
+    private boolean deleteItem() {
         String id = this.input.ask("Введите id заявки, которую хотите удалить");
-        this.tracker.delete(id);
+        return this.tracker.delete(id);
     }
     /**
      * Метод реализует замены заявки в хранилище.
      */
-    private void setItem() {
-        System.out.println("------------ Добавление новой заявки --------------");
+    private boolean setItem() {
+        System.out.println("------------ Изменение заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
         String id = this.input.ask("Введите id заявки, которую хотите заменить :");
-        this.tracker.replace(id, item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        return this.tracker.replace(id, item);
     }
     /**
      * Метод реализует добавленяи новый заявки в хранилище.

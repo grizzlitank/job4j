@@ -70,10 +70,16 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
-                ", id='" + id + '\'' +
+        return "Item{"
+                +
+                "name='"
+                + name + '\''
+                +
+                ", desc='"
+                + desc + '\''
+                +
+                ", id='" + id + '\''
+                +
                 '}';
     }
 }
