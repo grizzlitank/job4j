@@ -63,17 +63,9 @@ public class StartUI {
                     System.out.println(entry);
                 }
             } else if (REPLACE.equals(answer)) {
-                if (this.setItem()) {
-                    System.out.println("Запись изменена");
-                } else {
-                    System.out.println("Запись не найдена");
-                }
+                this.setItem();
             } else if (DELETE.equals(answer)) {
-                if (this.deleteItem()) {
-                    System.out.println("Запись удалена");
-                } else {
-                    System.out.println("Запись не найдена");
-                }
+                this.deleteItem();
             } else if (FIND_BY_ID.equals(answer)) {
                 this.findByIdItem();
             } else if (FIND_BY_NAME.equals(answer)) {
@@ -107,20 +99,28 @@ public class StartUI {
     /**
      * Метод удаляет заявки в хранилище.
      */
-    private boolean deleteItem() {
+    private void deleteItem() {
         String id = this.input.ask("Введите id заявки, которую хотите удалить");
-        return this.tracker.delete(id);
+        if (this.tracker.delete(id)) {
+            System.out.println("Запись удалена");
+        } else {
+            System.out.println("Запись не найдена");
+        }
     }
     /**
      * Метод реализует замены заявки в хранилище.
      */
-    private boolean setItem() {
+    private void setItem() {
         System.out.println("------------ Изменение заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
         String id = this.input.ask("Введите id заявки, которую хотите заменить :");
-        return this.tracker.replace(id, item);
+        if (this.tracker.replace(id, item)) {
+            System.out.println("Запись изменена");
+        } else {
+            System.out.println("Запись не найдена");
+        }
     }
     /**
      * Метод реализует добавленяи новый заявки в хранилище.
