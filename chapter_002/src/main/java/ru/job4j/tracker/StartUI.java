@@ -1,9 +1,4 @@
-package ru.job4j.start;
-
-import ru.job4j.tracker.ConsoleInput;
-import ru.job4j.tracker.Input;
-import ru.job4j.tracker.Item;
-import ru.job4j.tracker.Tracker;
+package ru.job4j.tracker;
 
 /**
  * @version $Id$
@@ -112,10 +107,10 @@ public class StartUI {
      */
     private void setItem() {
         System.out.println("------------ Изменение заявки --------------");
+        String id = this.input.ask("Введите id заявки, которую хотите заменить :");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc);
-        String id = this.input.ask("Введите id заявки, которую хотите заменить :");
         if (this.tracker.replace(id, item)) {
             System.out.println("Запись изменена");
         } else {
