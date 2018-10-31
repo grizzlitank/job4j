@@ -54,9 +54,7 @@ public class StartUI {
             if (ADD.equals(answer)) {
                 this.createItem();
             } else if (FIND_ALL.equals(answer)) {
-                for (Item entry : this.tracker.findAll()) {
-                    System.out.println(entry);
-                }
+                this.findAllItem();
             } else if (REPLACE.equals(answer)) {
                 this.setItem();
             } else if (DELETE.equals(answer)) {
@@ -68,6 +66,14 @@ public class StartUI {
             } else if (EXIT.equals(answer)) {
                 exit = true;
             }
+        }
+    }
+    /**
+     * Метод находит все заявки.
+     */
+    private void findAllItem() {
+        for (Item entry : this.tracker.findAll()) {
+            System.out.println(entry);
         }
     }
     /**
@@ -84,8 +90,9 @@ public class StartUI {
      */
     private void findByIdItem() {
         String id = this.input.ask("Введите id заявки, которую хотите найти");
-        if (this.tracker.findById(id) != null) {
-            System.out.println(this.tracker.findById(id));
+        Item item = this.tracker.findById(id);
+        if (item != null) {
+            System.out.println(item);
         } else {
             System.out.println("По данному id заявка не найдена");
         }
