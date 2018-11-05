@@ -137,23 +137,7 @@ public class StartUI {
     }
 
     private String showMenu() {
-        System.out.println("Меню.");
-        System.out.println("Введите пункт меню :");
-        System.lineSeparator();
-        System.out.println("0. Add new Item");
-        System.lineSeparator();
-        System.out.println("1. Show all items");
-        System.lineSeparator();
-        System.out.println("2. Edit item");
-        System.lineSeparator();
-        System.out.println("3. Delete item");
-        System.lineSeparator();
-        System.out.println("4. Find item by Id");
-        System.lineSeparator();
-        System.out.println("5. Find items by name");
-        System.lineSeparator();
-        System.out.println("6. Exit Program");
-        System.lineSeparator();
+        System.out.print(tracker.getMenu());
         String answer = this.input.ask("Select: ");
         return answer;
     }
