@@ -16,6 +16,7 @@ public class StartUIShowTest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
     private Tracker tracker;
     private Item item;
+    StartUI startUI;
 
     @Before
     public void loadOutput() {
@@ -35,10 +36,10 @@ public class StartUIShowTest {
         Input input = new StubInput(new String[]{"1", "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(this.out.toByteArray()), is(new StringBuilder()
-                .append(tracker.getMenu())
+                .append(new StartUI(input, tracker).getMenu())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(tracker.getMenu())
+                .append(new StartUI(input, tracker).getMenu())
                 .toString()));
     }
 
@@ -47,10 +48,10 @@ public class StartUIShowTest {
         Input input = new StubInput(new String[]{"4", item.getId(), "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(this.out.toByteArray()), is(new StringBuilder()
-                .append(tracker.getMenu())
+                .append(new StartUI(input, tracker).getMenu())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(tracker.getMenu())
+                .append(new StartUI(input, tracker).getMenu())
                 .toString()));
     }
 
@@ -59,10 +60,10 @@ public class StartUIShowTest {
         Input input = new StubInput(new String[]{"5", item.getName(), "6"});
         new StartUI(input, tracker).init();
         assertThat(new String(this.out.toByteArray()), is(new StringBuilder()
-                .append(tracker.getMenu())
+                .append(new StartUI(input, tracker).getMenu())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(tracker.getMenu())
+                .append(new StartUI(input, tracker).getMenu())
                 .toString()));
     }
 }

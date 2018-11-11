@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @version $Id$
  * @since 0.1
@@ -48,25 +51,16 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            String answer = this.showMenu();
-            if (ADD.equals(answer)) {
-                this.createItem();
-            } else if (FIND_ALL.equals(answer)) {
-                this.findAllItem();
-            } else if (REPLACE.equals(answer)) {
-                this.setItem();
-            } else if (DELETE.equals(answer)) {
-                this.deleteItem();
-            } else if (FIND_BY_ID.equals(answer)) {
-                this.findByIdItem();
-            } else if (FIND_BY_NAME.equals(answer)) {
-                this.findByNameItem();
-            } else if (EXIT.equals(answer)) {
-                exit = true;
-            }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
         }
+        do {
+            menu.show();
+            menu.select(Integer.valueOf(input.ask("Select:")));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
     /**
      * Метод находит все заявки.
