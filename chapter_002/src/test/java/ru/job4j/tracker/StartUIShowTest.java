@@ -33,37 +33,34 @@ public class StartUIShowTest {
 
     @Test
     public void whenUserShowAll() {
-        Input input = new StubInput(new String[]{"1", "6"});
+        Input input = new StubInput(new String[]{"1", "y"});
         new StartUI(input, tracker).init();
         assertThat(new String(this.out.toByteArray()), is(new StringBuilder()
                 .append(new StartUI(input, tracker).getMenu())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(new StartUI(input, tracker).getMenu())
                 .toString()));
     }
 
     @Test
     public void whenUserFindItemById() {
-        Input input = new StubInput(new String[]{"4", item.getId(), "6"});
+        Input input = new StubInput(new String[]{"4", item.getId(), "y"});
         new StartUI(input, tracker).init();
         assertThat(new String(this.out.toByteArray()), is(new StringBuilder()
                 .append(new StartUI(input, tracker).getMenu())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(new StartUI(input, tracker).getMenu())
                 .toString()));
     }
 
     @Test
     public void whenUserFindItemByName() {
-        Input input = new StubInput(new String[]{"5", item.getName(), "6"});
+        Input input = new StubInput(new String[]{"5", item.getName(), "y"});
         new StartUI(input, tracker).init();
         assertThat(new String(this.out.toByteArray()), is(new StringBuilder()
                 .append(new StartUI(input, tracker).getMenu())
                 .append(item.toString())
                 .append(System.lineSeparator())
-                .append(new StartUI(input, tracker).getMenu())
                 .toString()));
     }
 }

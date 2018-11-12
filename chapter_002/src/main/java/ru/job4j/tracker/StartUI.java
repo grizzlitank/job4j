@@ -138,11 +138,7 @@ public class StartUI {
 
     public String getMenu(){
         return new StringBuilder()
-                .append("Меню.")
-                .append(System.lineSeparator())
-                .append("Введите пункт меню :")
-                .append(System.lineSeparator())
-                .append("0. Add new Item")
+                .append("0. Add program")
                 .append(System.lineSeparator())
                 .append("1. Show all items")
                 .append(System.lineSeparator())
