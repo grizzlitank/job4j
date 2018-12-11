@@ -76,7 +76,7 @@ public class MenuTracker {
         private final int ADD;
         private final String MESSAGE;
 
-        public AddItem(int constanta, String message){
+        public AddItem(int constanta, String message) {
             ADD = constanta;
             MESSAGE = message;
         }
@@ -107,7 +107,7 @@ public class MenuTracker {
         private final int FIND_ALL;
         private final String MESSAGE;
 
-        public ShowItems(int constanta, String message){
+        public ShowItems(int constanta, String message) {
             FIND_ALL = constanta;
             MESSAGE = message;
         }
@@ -135,7 +135,7 @@ public class MenuTracker {
         private final int REPLACE;
         private final String MESSAGE;
 
-        public EditItem(int constanta, String message){
+        public EditItem(int constanta, String message) {
             REPLACE = constanta;
             MESSAGE = message;
         }
@@ -170,7 +170,7 @@ public class MenuTracker {
         private final int DELETE;
         private final String MESSAGE;
 
-        public DeleteItem(int constanta, String message){
+        public DeleteItem(int constanta, String message) {
             DELETE = constanta;
             MESSAGE = message;
         }
@@ -201,7 +201,7 @@ public class MenuTracker {
         private final int FIND_BY_ID;
         private final String MESSAGE;
 
-        public FindItemById(int constanta, String message){
+        public FindItemById(int constanta, String message) {
             FIND_BY_ID = constanta;
             MESSAGE = message;
         }
@@ -233,7 +233,7 @@ public class MenuTracker {
         private final int FIND_BY_NAME;
         private final String MESSAGE;
 
-        public FindItemsByName(int constanta, String message){
+        public FindItemsByName(int constanta, String message) {
             FIND_BY_NAME = constanta;
             MESSAGE = message;
         }
@@ -262,7 +262,7 @@ public class MenuTracker {
         private final int EXIT;
         private final String MESSAGE;
 
-        public ExitProgram(int constanta, String message){
+        public ExitProgram(int constanta, String message) {
             EXIT = constanta;
             MESSAGE = message;
         }

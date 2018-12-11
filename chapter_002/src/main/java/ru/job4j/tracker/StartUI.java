@@ -23,6 +23,7 @@ public class StartUI {
 
     private static final String FIND_BY_NAME = "5";
 
+    private int[] ranges = new int[] {0, 1, 2, 3, 4, 5, 6};
     /**
      * Константа для выхода из цикла.
      */
@@ -59,7 +60,7 @@ public class StartUI {
         }
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("Select:")));
+            menu.select(input.ask("Select:", ranges));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
     /**
@@ -136,7 +137,7 @@ public class StartUI {
         return answer;
     }
 
-    public String getMenu(){
+    public String getMenu() {
         return new StringBuilder()
                 .append("0. Add program")
                 .append(System.lineSeparator())

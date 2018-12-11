@@ -7,7 +7,7 @@ import java.util.StringJoiner;
  * @version $Id$
  * @since 0.1
  */
-public class Triangle implements Shape{
+public class Triangle implements Shape {
     @Override
     public String draw() {
         return new StringJoiner(
